@@ -1,0 +1,139 @@
+.header-container {
+  width: 100%;
+  height: 70px;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  transition: background 0.4s ease;
+}
+
+.header-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-image svg {
+  width: 80px;
+}
+
+.header-info {
+  width: 50%;
+}
+
+.header-menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 70px;
+  padding-right: 100px;
+  list-style: none;
+}
+
+.header-menu li {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.4s ease;
+}
+
+.border-home,
+.border-project,
+.border-about,
+.border-certified,
+.border-contact {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(calc(-50% + 1px));
+  width: calc(100% + 10px);
+  height: 5px;
+  margin-top: 5px;
+  display: flex;
+  gap: 0;
+}
+
+.border-home .border-left div,
+.border-project .border-left div,
+.border-about .border-left div,
+.border-certified .border-left div,
+.border-contact .border-left div,
+.border-desactivated .border-left div {
+  float: right;
+}
+
+.border-home div,
+.border-project div,
+.border-about div,
+.border-certified div,
+.border-contact div {
+  width: 50%;
+  margin: 0 -1px 0 0;
+}
+
+.border-left div,
+.border-right div {
+  height: 100%;
+  opacity: 1;
+  animation-name: open;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.border-desactivated {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 10px);
+  height: 5px;
+  margin-top: 5px;
+  display: flex;
+  gap: 0;
+}
+
+.border-desactivated div {
+  width: 50%;
+}
+
+.border-desactivated .border-left div,
+.border-desactivated .border-right div {
+  animation-name: close;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.header-menu .menu-selected {
+  color: #ff7700;
+}
+
+@keyframes open {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes close {
+  from {
+    width: 100%;
+    opacity: 1;
+  }
+
+  to {
+    width: 0px;
+    opacity: 0;
+  }
+}

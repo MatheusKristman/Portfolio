@@ -1,0 +1,115 @@
+.projects-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #ff7700;
+}
+
+.projects-info {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.projects-title {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-size: 10vw;
+  color: #e04d01;
+  margin-bottom: 30px;
+  transform: translateX(-100%);
+}
+
+.projects-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.projects-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-item img {
+  filter: brightness(70%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.projects-item a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  background-color: #ff7700;
+  font-family: "Cabin", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+}
+
+.projects-item:hover img {
+  filter: brightness(100%);
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 100%) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 100%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, 100%) scale(0.8);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes projectOff {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}

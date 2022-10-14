@@ -1,34 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState, useLayoutEffect, useEffect, createContext } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Projects from "./components/Projects";
+import "./App.css";
+
+export const context = createContext();
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [color, setColor] = useState("#FF7700");
+  const [bgColor, setBgColor] = useState("transparent");
+  const [homeRef, setHomeRef] = useState(null);
+  const [projectsRef, setProjectsRef] = useState(null);
+  const [scrollPosition, setPosition] = useState(0);
+
+  useLayoutEffect(() => {
+    setColor("#FF7700");
+    setBgColor("transparent");
+    function updatePosition() {
+      setPosition(window.pageYOffset);
+    }
+    window.addEventListener("scroll", updatePosition);
+    updatePosition();
+    return () => window.removeEventListener("scroll", updatePosition);
+  }, []);
+
+  useEffect(() => {
+    function handleHeader() {
+      if (scrollPosition === homeRef) {
+        setBgColor("transparent");
+        return;
+      } else if (scrollPosition < projectsRef) {
+        setBgColor("#251D3A");
+        setColor("#FF7700");
+        return;
+      } else {
+        // setBgColor("#FF7700");
+        // setColor("#251D3A");
+        return;
+      }
+    }
+    handleHeader();
+  }, [scrollPosition]);
 
   return (
-    <div className="App">
+    <context.Provider value={{ color, setColor, bgColor, setBgColor, setHomeRef, setProjectsRef }}>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Header />
+        <Home />
+        <Projects />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </context.Provider>
+  );
 }
 
-export default App
+export default App;
