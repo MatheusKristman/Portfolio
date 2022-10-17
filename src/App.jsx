@@ -2,7 +2,10 @@ import React, { useState, useLayoutEffect, useEffect, createContext } from "reac
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
+import About from "./components/About";
+import Certificate from "./components/Certificate";
 import "./App.css";
+import Contacts from "./components/Contacts";
 
 export const context = createContext();
 
@@ -11,6 +14,7 @@ function App() {
   const [bgColor, setBgColor] = useState("transparent");
   const [homeRef, setHomeRef] = useState(null);
   const [projectsRef, setProjectsRef] = useState(null);
+  const [aboutRef, setAboutRef] = useState(null);
   const [scrollPosition, setPosition] = useState(0);
 
   useLayoutEffect(() => {
@@ -33,21 +37,23 @@ function App() {
         setBgColor("#251D3A");
         setColor("#FF7700");
         return;
-      } else {
-        // setBgColor("#FF7700");
-        // setColor("#251D3A");
-        return;
+      } else if (scrollPosition < aboutRef) {
+        setBgColor("#FF7700");
+        setColor("#251D3A");
       }
     }
     handleHeader();
   }, [scrollPosition]);
 
   return (
-    <context.Provider value={{ color, setColor, bgColor, setBgColor, setHomeRef, setProjectsRef }}>
+    <context.Provider value={{ color, setColor, bgColor, setBgColor, setHomeRef, setProjectsRef, setAboutRef }}>
       <div>
         <Header />
         <Home />
         <Projects />
+        <About />
+        <Certificate />
+        <Contacts />
       </div>
     </context.Provider>
   );

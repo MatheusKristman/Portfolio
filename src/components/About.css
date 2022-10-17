@@ -1,0 +1,62 @@
+.about-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.about-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(90deg, #251d3a 48.96%, rgba(37, 29, 58, 0) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding-left: 5%;
+}
+
+.about-info {
+  width: 40%;
+  margin-bottom: 7%;
+  padding: 70px 50px;
+  background-color: #2a2550;
+  border-radius: 25px;
+}
+
+.about-info h2 {
+  font-family: "Cabin", sans-serif;
+  font-weight: 700;
+  font-size: 2vw;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.about-info p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 35px;
+}
+
+.about-tag {
+  margin-left: 100px;
+  margin-bottom: 80px;
+}
+
+.about-tag-span {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-size: 9vw;
+  color: #2a2550;
+}
+
+.about-background {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
