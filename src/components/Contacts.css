@@ -1,7 +1,9 @@
 .contacts-container {
+  position: relative;
   width: 100%;
-  height: 100vh;
+  height: fit-content;
   background-color: #251d3a;
+  padding: 200px 5% 75px 5%;
 }
 
 .contacts-wrapper {
@@ -14,15 +16,15 @@
 
 .contacts-social-links {
   background-color: #2a2550;
-  width: 25%;
+  width: 400px;
   height: fit-content;
-  padding: 85px 7%;
+  padding: 85px 100px;
   margin-right: 5%;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   gap: 80px;
-  margin-bottom: 150px;
+  margin-bottom: 200px;
 }
 
 .contacts-social-wrapper {
@@ -35,13 +37,173 @@
 .github-icon,
 .linkedin-icon,
 .instagram-icon {
-  font-size: 3vw;
+  font-size: 3.5rem;
   color: #ff7700;
 }
 
 .social-desc {
-  font-family: "Cabin", sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 2rem;
   color: #ff7700;
+}
+
+.contact-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  font-size: 9vw;
+  color: #2a2550;
+}
+
+@media screen and (max-width: 1020px) {
+  .contacts-social-links {
+    width: 360px;
+    padding: 60px 70px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .contacts-social-links {
+    width: 300px;
+  }
+
+  .contacts-social-wrapper {
+    gap: 25px;
+  }
+
+  .github-icon,
+  .linkedin-icon,
+  .instagram-icon {
+    font-size: 3rem;
+  }
+
+  .social-desc {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .contacts-social-links {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .contacts-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacts-container {
+    padding-top: 100px;
+  }
+
+  .contacts-social-links {
+    flex-direction: row;
+    width: 70%;
+    padding: 35px 40px;
+    justify-content: space-between;
+    gap: 0;
+    margin-bottom: 120px;
+  }
+
+  .github-icon,
+  .linkedin-icon,
+  .instagram-icon {
+    font-size: 3.5rem;
+  }
+
+  .social-desc {
+    display: none;
+  }
+
+  .contact-tag {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .contact-tag {
+    left: 40%;
+  }
+
+  .contacts-container {
+    padding-top: 120px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contacts-social-links {
+    width: 80%;
+  }
+
+  .contact-tag {
+    left: 30%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .contacts-social-links {
+    width: 90%;
+  }
+
+  .contact-tag {
+    font-size: 3rem;
+    left: 40%;
+    bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .contacts-social-links {
+    width: 100%;
+  }
+
+  .contact-tag {
+    left: 30%;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .contact-tag {
+    font-size: 2.7rem;
+  }
+
+  .contacts-social-links {
+    padding: 25px 35px;
+    margin-bottom: 100px;
+  }
+
+  .github-icon,
+  .linkedin-icon,
+  .instagram-icon {
+    font-size: 2.7rem;
+  }
+}
+
+@keyframes contactsSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes contactsSlideRight {
+  from {
+    opacity: 1;
+    transform: translateX(-20%);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }

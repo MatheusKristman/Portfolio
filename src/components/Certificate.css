@@ -21,8 +21,62 @@
 }
 
 .certificate-tag span {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: 'Ubuntu Mono', monospace;
   font-weight: 700;
   font-size: 9vw;
   color: #e04d01;
+}
+
+@media screen and (max-width: 1250px) {
+  .certificate-tag span {
+    font-size: 10vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .certificate-tag {
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .certificate-tag {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .certificate-tag {
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .certificate-tag span {
+    font-size: 2.3rem;
+  }
+}
+
+@keyframes certificateSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes certificateSlideLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }

@@ -1,6 +1,6 @@
 .about-container {
   width: 100%;
-  height: 100vh;
+  height: fit-content;
   position: relative;
 }
 
@@ -13,18 +13,19 @@
   display: flex;
   align-items: flex-end;
   padding-left: 5%;
+  padding-top: 150px;
 }
 
 .about-info {
   width: 40%;
-  margin-bottom: 7%;
+  margin-bottom: 5%;
   padding: 70px 50px;
   background-color: #2a2550;
   border-radius: 25px;
 }
 
 .about-info h2 {
-  font-family: "Cabin", sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-weight: 700;
   font-size: 2vw;
   color: #fff;
@@ -32,7 +33,7 @@
 }
 
 .about-info p {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #fff;
@@ -46,7 +47,7 @@
 }
 
 .about-tag-span {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: 'Ubuntu Mono', monospace;
   font-weight: 700;
   font-size: 9vw;
   color: #2a2550;
@@ -59,4 +60,72 @@
   z-index: 1;
   top: 0;
   right: 0;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1000px) {
+  .about-wrapper {
+    flex-direction: column;
+    padding-right: 5%;
+    background: linear-gradient(180deg, #251d3a 48.96%, rgba(37, 29, 58, 0) 100%);
+  }
+
+  .about-info {
+    width: 100%;
+  }
+
+  .about-info h2 {
+    font-size: 2rem;
+  }
+
+  .about-background {
+    width: 100%;
+    height: 60%;
+    top: auto;
+    bottom: 0;
+  }
+
+  .about-tag-span {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .about-info h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about-info p {
+    /* font-size: 0.8rem; */
+  }
+
+  .about-tag-span {
+    font-size: 4rem;
+  }
+}
+
+@keyframes aboutSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutSlideRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(150%);
+  }
 }

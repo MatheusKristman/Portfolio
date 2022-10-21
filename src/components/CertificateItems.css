@@ -37,7 +37,7 @@
 }
 
 .certificate-button {
-  font-family: "Cabin", sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-weight: 700;
   font-size: 1vw;
   color: #fff;
@@ -68,16 +68,115 @@
 }
 
 .certificate-info h3 {
-  font-family: "Cabin", sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-weight: 700;
   font-size: 2vw;
   color: #fff;
 }
 
 .certificate-info p {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #fff;
   line-height: 35px;
+}
+
+@media screen and (max-width: 1400px) {
+  .certificate-info h3 {
+    font-size: 2rem;
+  }
+
+  .certificate-button {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .certificate-links {
+    gap: 100px;
+  }
+
+  .certificate-item {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .certificate-info h3 {
+    text-align: center;
+  }
+
+  .certificate-button {
+    display: none;
+  }
+
+  .certificate-color-overlay {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .certificate-info {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .certificate {
+    min-width: 360px;
+    height: 254px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .certificate-info {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .certificate {
+    min-width: 270px;
+    height: 201px;
+  }
+
+  .certificate-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .certificate-info p {
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .certificate {
+    min-width: 190px;
+    height: 134px;
+  }
+
+  .certificate-info h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .certificate-links {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .certificate-item {
+    gap: 30px;
+  }
+
+  .certificate-info {
+    gap: 20px;
+  }
+
+  .certificate-info p {
+    line-height: 25px;
+  }
 }

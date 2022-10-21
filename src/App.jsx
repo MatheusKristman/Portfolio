@@ -15,6 +15,8 @@ function App() {
   const [homeRef, setHomeRef] = useState(null);
   const [projectsRef, setProjectsRef] = useState(null);
   const [aboutRef, setAboutRef] = useState(null);
+  const [certificateRef, setCertificateRef] = useState(null);
+  const [contactsRef, setContactsRef] = useState(null);
   const [scrollPosition, setPosition] = useState(0);
 
   useLayoutEffect(() => {
@@ -32,6 +34,7 @@ function App() {
     function handleHeader() {
       if (scrollPosition === homeRef) {
         setBgColor("transparent");
+        setColor("#FF7700");
         return;
       } else if (scrollPosition < projectsRef) {
         setBgColor("#251D3A");
@@ -40,13 +43,40 @@ function App() {
       } else if (scrollPosition < aboutRef) {
         setBgColor("#FF7700");
         setColor("#251D3A");
+      } else if (scrollPosition < certificateRef) {
+        setBgColor("#251D3A");
+        setColor("#FF7700");
+      } else if (scrollPosition < contactsRef) {
+        setBgColor("#FF7700");
+        setColor("#251D3A");
+      } else {
+        setBgColor("#251D3A");
+        setColor("#FF7700");
       }
     }
     handleHeader();
   }, [scrollPosition]);
 
   return (
-    <context.Provider value={{ color, setColor, bgColor, setBgColor, setHomeRef, setProjectsRef, setAboutRef }}>
+    <context.Provider
+      value={{
+        color,
+        setColor,
+        bgColor,
+        setBgColor,
+        homeRef,
+        setHomeRef,
+        projectsRef,
+        setProjectsRef,
+        aboutRef,
+        setAboutRef,
+        certificateRef,
+        setCertificateRef,
+        contactsRef,
+        setContactsRef,
+        scrollPosition,
+      }}
+    >
       <div>
         <Header />
         <Home />

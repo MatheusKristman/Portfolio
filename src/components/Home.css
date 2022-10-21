@@ -19,14 +19,14 @@
 }
 
 .home-title {
-  font-family: "Cabin", sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-weight: 700;
   font-size: 4.5vw;
   color: #fff;
 }
 
 .home-desc {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 3vw;
   color: #e04d01;
@@ -34,11 +34,144 @@
   width: 90%;
 }
 
+.home-tag {
+  display: none;
+}
+
 .home-image {
   position: absolute;
   z-index: 1;
   bottom: 0;
   right: 0;
-  width: 50%;
+  width: auto;
   height: 100%;
+}
+
+@media screen and (max-width: 870px) {
+  .home-container {
+    position: relative;
+    background-color: #251d3a;
+  }
+
+  .home-info {
+    width: 100%;
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .home-title {
+    width: 90%;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .home-desc {
+    font-size: 2rem;
+  }
+
+  .home-tag {
+    display: block;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #2a2550;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+  }
+
+  .home-image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .home-container {
+    height: 90vh;
+  }
+
+  .home-title {
+    font-size: 2.7rem;
+  }
+
+  .home-desc {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .home-container {
+    height: 80vh;
+  }
+
+  .home-info {
+    gap: 30px;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 398px) {
+  .home-title {
+    font-size: 2.3rem;
+  }
+
+  .home-tag {
+    font-size: 4rem;
+    bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 366px) {
+  .home-container {
+    height: 70vh;
+  }
+
+  .home-info {
+    gap: 20px;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-desc {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .home-container {
+    height: 60vh;
+  }
+
+  .home-title {
+    font-size: 1.7rem;
+  }
+}
+
+@keyframes homeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes homeSlideLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
 }

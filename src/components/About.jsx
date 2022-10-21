@@ -1,20 +1,32 @@
-import React, { useRef, useContext, useLayoutEffect } from "react";
+import React, { useRef, useContext, useLayoutEffect, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { context } from "../App";
 import "./About.css";
 import codeDesktop from "../../public/assets/code-background.png";
 
 function About() {
-  const ref = useRef();
+  const aboutRef = useRef();
+  const aboutTitle = useRef();
+
+  const { ref: ref, inView: isAboutVisible } = useInView();
 
   const { setAboutRef } = useContext(context);
 
   useLayoutEffect(() => {
-    setAboutRef(ref.current.offsetTop);
+    setAboutRef(aboutRef.current.offsetTop);
   }, []);
 
+  useEffect(() => {
+    if (isAboutVisible) {
+      aboutTitle.current.style.animation = "aboutSlideLeft 1.5s ease-in-out forwards";
+    } else {
+      aboutTitle.current.style.animation = "aboutSlideRight 1s ease-in-out forwards";
+    }
+  }, [isAboutVisible]);
+
   return (
-    <div ref={ref} className="about-container">
-      <div className="about-wrapper">
+    <div ref={aboutRef} className="about-container">
+      <div ref={ref} className="about-wrapper">
         <div className="about-info">
           <h2>Um pouco sobre mim</h2>
           <p>
@@ -27,7 +39,7 @@ function About() {
             Clean Code para uma boa estrutura de código e performance.
           </p>
         </div>
-        <div className="about-tag">
+        <div ref={aboutTitle} className="about-tag">
           <span className="about-tag-span">{"</Sobre>"}</span>
         </div>
       </div>
