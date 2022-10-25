@@ -4,11 +4,12 @@ import { context } from '../App';
 import './Home.css';
 
 function Home() {
-  const { setHomeRef } = useContext(context);
+  const { setHomeRef, scrollPosition } = useContext(context);
 
   const home = useRef();
   const homeText = useRef();
   const typed = useRef();
+  const arrow = useRef();
 
   useLayoutEffect(() => {
     setHomeRef(home.current.offsetTop);
@@ -25,6 +26,18 @@ function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      arrow.current.style.animation = 'none';
+    });
+
+    if (scrollPosition > 0) {
+      arrow.current.style.animation = 'arrowDisable 1s ease forwards';
+    } else {
+      arrow.current.style.animation = 'arrowEnable 1s 4s ease forwards';
+    }
+  }, [scrollPosition]);
+
   return (
     <>
       <main ref={home} className='home-container'>
@@ -37,6 +50,9 @@ function Home() {
           </div>
         </div>
         <img className='home-image' src={HomeImage} alt='home-image' />
+        <div ref={arrow} className='home-mobile-arrow'>
+          <i className='fa-solid fa-chevron-down home-mobile-arrow-icon' />
+        </div>
       </main>
     </>
   );

@@ -26,7 +26,7 @@
 
 .home-title-wrapper {
   font-size: 4.5vw;
-  height: 40%;
+  height: fit-content;
 }
 
 .home-title {
@@ -44,6 +44,8 @@
   color: #e04d01;
   text-align: center;
   width: 90%;
+  opacity: 0;
+  animation: arrowEnable 1s 3.8s ease forwards;
 }
 
 .home-image {
@@ -62,6 +64,10 @@
   animation: typedjsBlink 0.7s infinite;
   color: #fff;
   font-size: inherit;
+}
+
+.home-mobile-arrow {
+  display: none;
 }
 
 @keyframes typedjsBlink {
@@ -99,7 +105,6 @@
 
   .home-title-wrapper {
     font-size: 4.9vw;
-    height: 30%;
   }
 }
 
@@ -110,10 +115,6 @@
 
   .home-desc {
     font-size: 2.5rem;
-  }
-
-  .home-title-wrapper {
-    height: 25%;
   }
 }
 
@@ -132,7 +133,6 @@
   .home-title-wrapper {
     text-align: center;
     font-size: 3rem;
-    height: 20%;
   }
 
   .home-title {
@@ -144,7 +144,7 @@
   }
 
   .home-image {
-    top: 15%;
+    top: 10vh;
     left: 50%;
     z-index: 2;
     width: 200px;
@@ -153,23 +153,36 @@
     transform: translateX(-50%);
     filter: saturate(80%);
   }
+
+  .home-mobile-arrow {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 70px;
+    height: 70px;
+    background-color: #ff7700;
+    color: #e04d01;
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .home-mobile-arrow-icon {
+    animation: homeIconAnim 1s ease-in-out infinite forwards;
+  }
 }
 
 @media screen and (max-width: 540px) {
   .home-image {
-    top: 10%;
-  }
-
-  .home-title-wrapper {
-    height: 30%;
+    top: 10vh;
   }
 }
 
 @media screen and (max-width: 476px) {
-  .home-container {
-    height: 90vh;
-  }
-
   .home-title-wrapper {
     font-size: 2.7rem;
   }
@@ -185,10 +198,6 @@
 }
 
 @media screen and (max-width: 430px) {
-  .home-container {
-    height: 80vh;
-  }
-
   .home-info {
     gap: 30px;
   }
@@ -200,7 +209,7 @@
   .home-image {
     width: 150px;
     height: 150px;
-    top: 15%;
+    top: 15vh;
   }
 }
 
@@ -213,20 +222,21 @@
     width: 140px;
     height: 140px;
   }
+
+  .home-mobile-arrow {
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media screen and (max-width: 366px) {
-  .home-container {
-    height: 70vh;
-  }
-
   .home-info {
     gap: 20px;
   }
 
   .home-title-wrapper {
     font-size: 2rem;
-    height: 27%;
   }
 
   .home-desc {
@@ -240,30 +250,18 @@
 }
 
 @media screen and (max-width: 319px) {
-  .home-container {
-    height: 60vh;
-  }
-
   .home-title-wrapper {
     font-size: 1.7rem;
   }
 }
 
 @media screen and (max-width: 290px) {
-  .home-container {
-    height: 70vh;
-  }
-
   .home-wrapper {
     padding-top: 150px;
   }
 
   .home-image {
-    top: 17%;
-  }
-
-  .home-title-wrapper {
-    height: 35%;
+    top: 17vh;
   }
 }
 
@@ -288,5 +286,43 @@
   to {
     opacity: 0;
     transform: translateX(-150%);
+  }
+}
+
+@keyframes homeIconAnim {
+  0% {
+    transform: translateY(-1px);
+  }
+
+  50% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes arrowDisable {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes arrowEnable {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
