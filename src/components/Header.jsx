@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import { context } from '../App';
 import './Header.css';
 
@@ -15,6 +15,8 @@ function Header() {
 
   const { color, bgColor, homeRef, projectsRef, aboutRef, certificateRef, contactsRef, scrollPosition } = useContext(context);
 
+  const menuRef = useRef();
+
   useEffect(() => {
     setInitialStyle({ opacity: 0 });
 
@@ -24,86 +26,101 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    if (scrollPosition < projectsRef) {
-      const obj = { ...menu };
-      Object.keys(obj).map((key) => {
-        if (key === 'home') {
-          obj[key] = true;
-        } else {
-          obj[key] = false;
-        }
-      });
-      setMenu(obj);
-    } else if (scrollPosition < aboutRef) {
-      const obj = { ...menu };
-      Object.keys(obj).map((key) => {
-        if (key === 'projetos') {
-          obj[key] = true;
-        } else {
-          obj[key] = false;
-        }
-      });
-      setMenu(obj);
-    } else if (scrollPosition < certificateRef) {
-      const obj = { ...menu };
-      Object.keys(obj).map((key) => {
-        if (key === 'sobre') {
-          obj[key] = true;
-        } else {
-          obj[key] = false;
-        }
-      });
-      setMenu(obj);
-    } else if (scrollPosition < contactsRef) {
-      const obj = { ...menu };
-      Object.keys(obj).map((key) => {
-        if (key === 'certificados') {
-          obj[key] = true;
-        } else {
-          obj[key] = false;
-        }
-      });
-      setMenu(obj);
-    } else {
-      const obj = { ...menu };
-      Object.keys(obj).map((key) => {
-        if (key === 'contatos') {
-          obj[key] = true;
-        } else {
-          obj[key] = false;
-        }
-      });
-      setMenu(obj);
+    if (homeRef !== null && projectsRef !== null && aboutRef !== null && certificateRef !== null && contactsRef !== null) {
+      if (scrollPosition < projectsRef) {
+        const obj = { ...menu };
+        Object.keys(obj).map((key) => {
+          if (key === 'home') {
+            obj[key] = true;
+          } else {
+            obj[key] = false;
+          }
+        });
+        setMenu(obj);
+      } else if (scrollPosition < aboutRef) {
+        const obj = { ...menu };
+        Object.keys(obj).map((key) => {
+          if (key === 'projetos') {
+            obj[key] = true;
+          } else {
+            obj[key] = false;
+          }
+        });
+        setMenu(obj);
+      } else if (scrollPosition < certificateRef) {
+        const obj = { ...menu };
+        Object.keys(obj).map((key) => {
+          if (key === 'sobre') {
+            obj[key] = true;
+          } else {
+            obj[key] = false;
+          }
+        });
+        setMenu(obj);
+      } else if (scrollPosition < contactsRef) {
+        const obj = { ...menu };
+        Object.keys(obj).map((key) => {
+          if (key === 'certificados') {
+            obj[key] = true;
+          } else {
+            obj[key] = false;
+          }
+        });
+        setMenu(obj);
+      } else {
+        const obj = { ...menu };
+        Object.keys(obj).map((key) => {
+          if (key === 'contatos') {
+            obj[key] = true;
+          } else {
+            obj[key] = false;
+          }
+        });
+        setMenu(obj);
+      }
     }
   }, [scrollPosition]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  }, [isMenuOpen]);
 
   function handleMenu(option) {
     switch (option) {
       case 'home':
+        enableScroll();
         window.scrollTo({
           top: homeRef,
           behavior: 'smooth',
         });
         break;
       case 'projetos':
+        enableScroll();
         window.scrollTo({
           top: projectsRef,
           behavior: 'smooth',
         });
         break;
       case 'sobre':
+        enableScroll();
         window.scrollTo({
           top: aboutRef,
           behavior: 'smooth',
         });
         break;
       case 'certificados':
+        enableScroll();
         window.scrollTo({
           top: certificateRef,
           behavior: 'smooth',
         });
         break;
       case 'contatos':
+        enableScroll();
         window.scrollTo({
           top: contactsRef,
           behavior: 'smooth',
@@ -112,10 +129,32 @@ function Header() {
       default:
         break;
     }
+    setIsMenuOpen(false);
+    menuRef.current.style.animation = 'mobileMenuClose 1s ease forwards';
   }
 
   function handleMobileMenu() {
-    setIsMenuOpen(!isMenuOpen);
+    let menu = isMenuOpen;
+    menu = !menu;
+    setIsMenuOpen(menu);
+
+    if (menu) {
+      menuRef.current.style.animation = 'mobileMenuOpen 1s ease forwards';
+    } else {
+      menuRef.current.style.animation = 'mobileMenuClose 1s ease forwards';
+    }
+  }
+
+  function disableScroll() {
+    const scrollTop = window.pageYOffset;
+
+    window.onscroll = function () {
+      window.scrollTo(0, scrollTop);
+    };
+  }
+
+  function enableScroll() {
+    window.onscroll = function () {};
   }
 
   return (
@@ -144,85 +183,30 @@ function Header() {
               style={isMenuOpen ? { backgroundColor: 'transparent' } : { backgroundColor: color }}
             />
           </button>
-          <ul className='header-menu'>
-            <li onClick={() => handleMenu('home')} style={menu.home ? { color: color } : { color: '#FFF' }}>
-              Home
-              <div className={menu.home ? 'border-home' : 'border-desactivated'}>
-                <div className='border-left'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-                <div className='border-right'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-              </div>
-            </li>
-            <li onClick={() => handleMenu('projetos')} style={menu.projetos ? { color: color } : { color: '#FFF' }}>
-              Projetos
-              <div style={initialStyle} className={menu.projetos ? 'border-project' : 'border-desactivated'}>
-                <div className='border-left'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-                <div className='border-right'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-              </div>
-            </li>
-            <li onClick={() => handleMenu('sobre')} style={menu.sobre ? { color: color } : { color: '#FFF' }}>
-              Sobre
-              <div style={initialStyle} className={menu.sobre ? 'border-about' : 'border-desactivated'}>
-                <div className='border-left'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-                <div className='border-right'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-              </div>
-            </li>
-            <li onClick={() => handleMenu('certificados')} style={menu.certificados ? { color: color } : { color: '#FFF' }}>
-              Certificados
-              <div style={initialStyle} className={menu.certificados ? 'border-certified' : 'border-desactivated'}>
-                <div className='border-left'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-                <div className='border-right'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-              </div>
-            </li>
-            <li onClick={() => handleMenu('contatos')} style={menu.contatos ? { color: color } : { color: '#FFF' }}>
-              Contatos
-              <div style={initialStyle} className={menu.contatos ? 'border-contact' : 'border-desactivated'}>
-                <div className='border-left'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-                <div className='border-right'>
-                  <div style={{ backgroundColor: color }} />
-                </div>
-              </div>
-            </li>
-          </ul>
-          <ul className={isMenuOpen ? 'header-menu-mobile' : 'header-menu-mobile menu-desactivated'}>
-            <li onClick={() => handleMenu('home')} style={menu.home ? { color: '#ff7700' } : { color: '#fff' }}>
-              Home
-              <div className={menu.home ? 'border-mobile-home' : 'border-mobile-desactivated'} />
-            </li>
-            <li onClick={() => handleMenu('projetos')} style={menu.projetos ? { color: '#ff7700' } : { color: '#fff' }}>
-              Projetos
-              <div className={menu.projetos ? 'border-mobile-project' : 'border-mobile-desactivated'} />
-            </li>
-            <li onClick={() => handleMenu('sobre')} style={menu.sobre ? { color: '#ff7700' } : { color: '#fff' }}>
-              Sobre
-              <div className={menu.sobre ? 'border-mobile-about' : 'border-mobile-desactivated'} />
-            </li>
-            <li onClick={() => handleMenu('certificados')} style={menu.certificados ? { color: '#ff7700' } : { color: '#fff' }}>
-              Certificados
-              <div className={menu.certificados ? 'border-mobile-certified' : 'border-mobile-desactivated'} />
-            </li>
-            <li onClick={() => handleMenu('contatos')} style={menu.contatos ? { color: '#ff7700' } : { color: '#fff' }}>
-              Contatos
-              <div className={menu.contatos ? 'border-mobile-contact' : 'border-mobile-desactivated'} />
-            </li>
-          </ul>
+          <nav ref={menuRef} style={{ animation: 'none' }} className='header-menu'>
+            <ul className='header-menu-box'>
+              <li onClick={() => handleMenu('home')}>
+                <span style={menu.home ? { color: '#ff7700' } : { color: '#fff' }}>Home</span>
+                <div className={menu.home ? 'background-item-selected' : 'background-item'} />
+              </li>
+              <li onClick={() => handleMenu('projetos')}>
+                <span style={menu.projetos ? { color: '#E04D01' } : { color: '#fff' }}>Projetos</span>
+                <div className={menu.projetos ? 'background-item-selected' : 'background-item'} />
+              </li>
+              <li onClick={() => handleMenu('sobre')}>
+                <span style={menu.sobre ? { color: '#E04D01' } : { color: '#fff' }}>Sobre</span>
+                <div className={menu.sobre ? 'background-item-selected' : 'background-item'} />
+              </li>
+              <li onClick={() => handleMenu('certificados')}>
+                <span style={menu.certificados ? { color: '#E04D01' } : { color: '#fff' }}>Certificados</span>
+                <div className={menu.certificados ? 'background-item-selected' : 'background-item'} />
+              </li>
+              <li onClick={() => handleMenu('contatos')}>
+                <span style={menu.contatos ? { color: '#E04D01' } : { color: '#fff' }}>Contatos</span>
+                <div className={menu.contatos ? 'background-item-selected' : 'background-item'} />
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>

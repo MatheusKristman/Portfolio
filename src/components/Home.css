@@ -1,11 +1,17 @@
 .home-container {
   position: relative;
-  z-index: 3;
   width: 100%;
   height: 100vh;
-  background: radial-gradient(44.79% 80.13% at 99.43% 50%, rgba(37, 29, 58, 0) 0%, #251d3a 100%);
-  padding-top: 100px;
   overflow-x: hidden;
+}
+
+.home-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background: radial-gradient(44.79% 80.13% at 99.43% 50%, rgba(37, 29, 58, 0) 0%, #251d3a 100%);
+  z-index: 2;
 }
 
 .home-info {
@@ -18,24 +24,26 @@
   gap: 50px;
 }
 
+.home-title-wrapper {
+  font-size: 4.5vw;
+  height: 40%;
+}
+
 .home-title {
   font-family: 'Cabin', sans-serif;
+  font-size: inherit;
   font-weight: 700;
-  font-size: 4.5vw;
   color: #fff;
+  display: inline;
 }
 
 .home-desc {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 3vw;
+  font-size: 3rem;
   color: #e04d01;
   text-align: center;
   width: 90%;
-}
-
-.home-tag {
-  display: none;
 }
 
 .home-image {
@@ -47,7 +55,69 @@
   height: 100%;
 }
 
-@media screen and (max-width: 870px) {
+.typed-cursor {
+  opacity: 1;
+  animation: typedjsBlink 0.7s infinite;
+  -webkit-animation: typedjsBlink 0.7s infinite;
+  animation: typedjsBlink 0.7s infinite;
+  color: #fff;
+  font-size: inherit;
+}
+
+@keyframes typedjsBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes typedjsBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .home-image {
+    right: -100px;
+  }
+
+  .home-title-wrapper {
+    font-size: 4.7vw;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .home-image {
+    right: -200px;
+  }
+
+  .home-title-wrapper {
+    font-size: 4.9vw;
+    height: 30%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .home-image {
+    right: -300px;
+  }
+
+  .home-desc {
+    font-size: 2.5rem;
+  }
+
+  .home-title-wrapper {
+    height: 25%;
+  }
+}
+
+@media screen and (max-width: 914px) {
   .home-container {
     position: relative;
     background-color: #251d3a;
@@ -59,29 +129,39 @@
     align-items: center;
   }
 
-  .home-title {
-    width: 90%;
+  .home-title-wrapper {
     text-align: center;
     font-size: 3rem;
+    height: 20%;
+  }
+
+  .home-title {
+    width: 90%;
   }
 
   .home-desc {
     font-size: 2rem;
   }
 
-  .home-tag {
-    display: block;
-    font-family: 'Ubuntu Mono', monospace;
-    font-weight: 700;
-    font-size: 5rem;
-    color: #2a2550;
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
+  .home-image {
+    top: 15%;
+    left: 50%;
+    z-index: 2;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    filter: saturate(80%);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .home-image {
+    top: 10%;
   }
 
-  .home-image {
-    display: none;
+  .home-title-wrapper {
+    height: 30%;
   }
 }
 
@@ -90,12 +170,17 @@
     height: 90vh;
   }
 
-  .home-title {
+  .home-title-wrapper {
     font-size: 2.7rem;
   }
 
   .home-desc {
     font-size: 1.5rem;
+  }
+
+  .home-image {
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -108,19 +193,25 @@
     gap: 30px;
   }
 
-  .home-title {
+  .home-title-wrapper {
     font-size: 2.5rem;
+  }
+
+  .home-image {
+    width: 150px;
+    height: 150px;
+    top: 15%;
   }
 }
 
 @media screen and (max-width: 398px) {
-  .home-title {
+  .home-title-wrapper {
     font-size: 2.3rem;
   }
 
-  .home-tag {
-    font-size: 4rem;
-    bottom: 20px;
+  .home-image {
+    width: 140px;
+    height: 140px;
   }
 }
 
@@ -133,12 +224,18 @@
     gap: 20px;
   }
 
-  .home-title {
+  .home-title-wrapper {
     font-size: 2rem;
+    height: 27%;
   }
 
   .home-desc {
     font-size: 1.2rem;
+  }
+
+  .home-image {
+    width: 130px;
+    height: 130px;
   }
 }
 
@@ -147,8 +244,26 @@
     height: 60vh;
   }
 
-  .home-title {
+  .home-title-wrapper {
     font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .home-container {
+    height: 70vh;
+  }
+
+  .home-wrapper {
+    padding-top: 150px;
+  }
+
+  .home-image {
+    top: 17%;
+  }
+
+  .home-title-wrapper {
+    height: 35%;
   }
 }
 

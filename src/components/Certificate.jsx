@@ -1,8 +1,8 @@
-import React, { useContext, useLayoutEffect, useEffect, useRef } from "react";
-import CertificateItems from "./CertificateItems";
-import { context } from "../App";
-import { useInView } from "react-intersection-observer";
-import "./Certificate.css";
+import React, { useContext, useLayoutEffect, useEffect, useRef } from 'react';
+import CertificateItems from './CertificateItems';
+import { context } from '../App';
+import { useInView } from 'react-intersection-observer';
+import './Certificate.css';
 
 function Certificate() {
   const certificateRef = useRef();
@@ -18,21 +18,21 @@ function Certificate() {
 
   useEffect(() => {
     if (isCertificateVisible) {
-      certificateTitle.current.style.animation = "certificateSlideRight 1.5s ease-in-out forwards";
+      certificateTitle.current.style.animation = 'certificateSlideRight 1.5s ease-in-out forwards';
     } else {
-      certificateTitle.current.style.animation = "certificateSlideLeft 1s ease-in-out forwards";
+      certificateTitle.current.style.animation = 'certificateSlideLeft 1s ease-in-out forwards';
     }
   }, [isCertificateVisible]);
 
   return (
-    <div ref={certificateRef} className="certificate-container">
-      <div ref={ref} className="certificate-wrapper">
-        <div ref={certificateTitle} className="certificate-tag">
-          <span>{"</Certificados>"}</span>
+    <section ref={certificateRef} className='certificate-container'>
+      <div ref={ref} className='certificate-wrapper'>
+        <div ref={certificateTitle} className='certificate-tag'>
+          <span>{'</Certificados>'}</span>
         </div>
         <CertificateItems />
       </div>
-    </div>
+    </section>
   );
 }
 

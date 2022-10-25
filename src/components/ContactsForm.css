@@ -1,7 +1,45 @@
 .form-container {
-  padding-left: 5%;
-  width: 450px;
+  width: 50%;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-text-box {
+  margin-bottom: 50px;
+  width: 100%;
+  font-size: 4.5rem;
+}
+
+.form-text-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: inherit;
+  color: #fff;
+  margin-bottom: 25px;
+  display: inline;
+}
+
+.form-text-title span {
+  color: #ff7700;
+}
+
+.form-text-desc {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.typed-cursor {
+  opacity: 1;
+  animation: typedjsBlink 0.7s infinite;
+  -webkit-animation: typedjsBlink 0.7s infinite;
+  animation: typedjsBlink 0.7s infinite;
+  color: #fff;
+  font-size: inherit;
 }
 
 .form-container form {
@@ -11,7 +49,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .name-input-wrapper,
@@ -39,13 +77,15 @@
 .subject-input,
 .message-input {
   width: 100%;
-  height: 40px;
+  height: 45px;
   border-radius: 10px;
   outline: none;
   border: none;
   padding: 0 16px;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
+  background-color: #2a2550;
+  color: #fff;
 }
 
 .message-input {
@@ -75,6 +115,8 @@
   padding: 15px 30px;
   cursor: pointer;
   transition: background-color 0.4s ease;
+  width: 300px;
+  margin-top: 20px;
 }
 
 .submit-button:hover {
@@ -90,7 +132,7 @@
   bottom: 100%;
   left: 50%;
   background-color: #ff7700;
-  width: 100%;
+  width: 350px;
   padding: 15px 30px;
   border-radius: 10px;
   transform: translate(-50%, -25%);
@@ -106,44 +148,112 @@
   color: #fff;
 }
 
-@media screen and (max-width: 1020px) {
-  .form-container {
-    width: 350px;
+@media screen and (max-width: 1535px) {
+  .form-text-box {
+    font-size: 4rem;
   }
 }
 
-@media screen and (max-width: 780px) {
-  .form-container {
-    padding-left: 0;
-    width: 300px;
+@media screen and (max-width: 1360px) {
+  .form-text-box {
+    font-size: 3.5rem;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1220px) {
+  .form-text-box {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .form-text-box {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .form-container {
+    width: 60%;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 785px) {
   .form-container {
     width: 70%;
   }
-
-  .form-container form {
-    margin-bottom: 70px;
-  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 630px) {
   .form-container {
     width: 80%;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 550px) {
+  .form-container {
+    width: 90%;
+  }
+
+  .form-success-box {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .form-container {
+    width: 80%;
+  }
+
+  .form-text-box {
+    font-size: 2rem;
+  }
+
+  .form-text-title {
+  }
+
+  .form-text-desc {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
   .form-container {
     width: 90%;
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 380px) {
   .form-container {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .form-text-box {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .form-text-box {
+    font-size: 1.5rem;
+  }
+
+  .form-text-desc {
+    font-size: 0.9rem;
+  }
+
+  .name-label,
+  .email-label,
+  .subject-label,
+  .message-label {
+    font-size: 1rem;
   }
 }
 
@@ -168,5 +278,23 @@
   to {
     opacity: 0;
     transform: translate(-50%, 100%);
+  }
+}
+
+@keyframes typedjsBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes typedjsBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -1,8 +1,8 @@
-import React, { useRef, useContext, useLayoutEffect, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { context } from "../App";
-import "./About.css";
-import codeDesktop from "../../public/assets/code-background.png";
+import React, { useRef, useContext, useLayoutEffect, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { context } from '../App';
+import './About.css';
+import codeDesktop from '../../public/assets/code-background.png';
 
 function About() {
   const aboutRef = useRef();
@@ -18,16 +18,16 @@ function About() {
 
   useEffect(() => {
     if (isAboutVisible) {
-      aboutTitle.current.style.animation = "aboutSlideLeft 1.5s ease-in-out forwards";
+      aboutTitle.current.style.animation = 'aboutSlideLeft 1.5s ease-in-out forwards';
     } else {
-      aboutTitle.current.style.animation = "aboutSlideRight 1s ease-in-out forwards";
+      aboutTitle.current.style.animation = 'aboutSlideRight 1s ease-in-out forwards';
     }
   }, [isAboutVisible]);
 
   return (
-    <div ref={aboutRef} className="about-container">
-      <div ref={ref} className="about-wrapper">
-        <div className="about-info">
+    <section ref={aboutRef} className='about-container'>
+      <div ref={ref} className='about-wrapper'>
+        <div className='about-info'>
           <h2>Um pouco sobre mim</h2>
           <p>
             Desde a infância fui muito conectado com a tecnologia, mas somente em 2021 descobri a minha verdadeira paixão: a programação. Desde então,
@@ -39,12 +39,12 @@ function About() {
             Clean Code para uma boa estrutura de código e performance.
           </p>
         </div>
-        <div ref={aboutTitle} className="about-tag">
-          <span className="about-tag-span">{"</Sobre>"}</span>
+        <div ref={aboutTitle} className='about-tag'>
+          <span className='about-tag-span'>{'</Sobre>'}</span>
         </div>
       </div>
-      <img className="about-background" src={codeDesktop} alt="code" />
-    </div>
+      <img className='about-background' src={codeDesktop} alt='code' />
+    </section>
   );
 }
 

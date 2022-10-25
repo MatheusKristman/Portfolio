@@ -37,6 +37,28 @@
   .certificate-tag {
     height: 220px;
   }
+
+  .certificate-tag span {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .certificate-tag span {
+    font-size: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .certificate-tag span {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .certificate-tag span {
+    font-size: 5.5rem;
+  }
 }
 
 @media screen and (max-width: 680px) {
@@ -45,9 +67,45 @@
   }
 }
 
+@media screen and (max-width: 660px) {
+  .certificate-tag span {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .certificate-tag span {
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .certificate-tag span {
+    font-size: 4rem;
+  }
+}
+
 @media screen and (max-width: 490px) {
   .certificate-tag {
     height: 140px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .certificate-tag span {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .certificate-tag span {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .certificate-tag span {
+    font-size: 2.5rem;
   }
 }
 

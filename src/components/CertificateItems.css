@@ -82,6 +82,10 @@
   line-height: 35px;
 }
 
+.certificate-link-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 1400px) {
   .certificate-info h3 {
     font-size: 2rem;
@@ -112,6 +116,20 @@
 
   .certificate-color-overlay {
     display: none;
+  }
+
+  .certificate-link-mobile {
+    display: block;
+    background-color: #ff7700;
+    width: fit-content;
+    padding: 15px 30px;
+    align-self: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
   }
 }
 

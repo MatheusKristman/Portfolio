@@ -93,7 +93,7 @@ function Projects() {
   }
 
   return (
-    <div onScroll={() => console.log('scrollado')} ref={projectContainer} className='projects-container'>
+    <section onScroll={() => console.log('scrollado')} ref={projectContainer} className='projects-container'>
       <div className='projects-info'>
         <span ref={projectTitle} className='projects-title'>
           {'</Projetos>'}
@@ -137,7 +137,7 @@ function Projects() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

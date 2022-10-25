@@ -13,3 +13,16 @@ body {
 #root {
   overflow-x: hidden;
 }
+
+html::-webkit-scrollbar {
+  width: 7px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #251d3a;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #e04d01;
+  border-radius: 25px;
+}

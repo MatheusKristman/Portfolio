@@ -23,6 +23,14 @@ function CertificateItems() {
         <div className='certificate-info'>
           <h3>Curso Web Moderno - Cod3r</h3>
           <p>{'Aqui foi aonde consegui complementar grande parte do meu conhecimento com muitos exercicios. (sempre bom exercitar o cérebro)'}</p>
+          <a
+            href='https://www.udemy.com/certificate/UC-e7b8cbbf-3e46-4cbe-afd3-eb9ab860aaca/'
+            target='_blank'
+            rel='noreferrer noopener'
+            className='certificate-link-mobile'
+          >
+            Ver certificado
+          </a>
         </div>
       </div>
       <div className='certificate-item'>
@@ -39,6 +47,14 @@ function CertificateItems() {
         <div className='certificate-info'>
           <h3>{'NodeJS e MongoDB (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
           <p>{'Esse foi o que me ajudou a entender melhor como funciona a parte Back-end e integração com o Front-end.'}</p>
+          <a
+            href='https://certificados.programadorbr.com/certificado/DVWBMK16NO29097'
+            target='_blank'
+            rel='noreferrer noopener'
+            className='certificate-link-mobile'
+          >
+            Ver certificado
+          </a>
         </div>
       </div>
       <div className='certificate-item'>
@@ -55,6 +71,14 @@ function CertificateItems() {
         <div className='certificate-info'>
           <h3>{'ReactJS (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
           <p>{'Já esse foi o primeiro framework que aprendi na minha vida, sempre achei incrível como eles facilitam tanto a nossa vida.'}</p>
+          <a
+            href="https://certificados.programadorbr.com/certificado/DVWBMK16NO29097'"
+            target='_blank'
+            rel='noreferrer noopener'
+            className='certificate-link-mobile'
+          >
+            Ver certificado
+          </a>
         </div>
       </div>
       <div className='certificate-item'>
@@ -71,6 +95,14 @@ function CertificateItems() {
         <div className='certificate-info'>
           <h3>{'Firebase, jQuery e Bootstrap (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
           <p>{'Com esse consegui entender melhor como um banco de dados funciona, alem de alguns frameworks para agilizarem o processo.'}</p>
+          <a
+            href='https://certificados.programadorbr.com/certificado/DVWBMK16NO29097'
+            target='_blank'
+            rel='noreferrer noopener'
+            className='certificate-link-mobile'
+          >
+            Ver certificado
+          </a>
         </div>
       </div>
       <div className='certificate-item'>
@@ -91,6 +123,14 @@ function CertificateItems() {
               'Foi com esse que entrei no mundo da Programação, que criei meu primeiro site, que quebrei muito a cabeça para entender como a linguagem funciona e ele que me mostrou que posso fazer a diferença para as pessoas com o meu código.'
             }
           </p>
+          <a
+            href='https://certificados.programadorbr.com/certificado/DVWBMK16HT29097'
+            target='_blank'
+            rel='noreferrer noopener'
+            className='certificate-link-mobile'
+          >
+            Ver certificado
+          </a>
         </div>
       </div>
     </div>

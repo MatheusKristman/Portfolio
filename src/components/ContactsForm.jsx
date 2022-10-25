@@ -1,8 +1,9 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { context } from '../App';
+import { useInView } from 'react-intersection-observer';
 import './ContactsForm.css';
 
 const schema = yup.object({
@@ -17,8 +18,27 @@ function ContactsForm() {
 
   const formRef = useRef();
   const successMessageRef = useRef();
+  const formTitle = useRef();
+  const typed = useRef();
 
   const { contactsRef } = useContext(context);
+
+  const { ref: ref, inView: isContactVisible } = useInView();
+
+  useEffect(() => {
+    if (isContactVisible) {
+      const options = {
+        strings: ['Entre em <span><span><</span>contato /></span>'],
+        typeSpeed: 50,
+      };
+
+      typed.current = new Typed(formTitle.current, options);
+
+      return () => {
+        typed.current.destroy();
+      };
+    }
+  }, [isContactVisible]);
 
   const {
     register,
@@ -79,7 +99,13 @@ function ContactsForm() {
   };
 
   return (
-    <div className='form-container'>
+    <div ref={ref} className='form-container'>
+      <div className='form-text-box'>
+        <h2 ref={formTitle} className='form-text-title'></h2>
+        <p className='form-text-desc'>
+          Se você quiser entrar em contato, conversar sobre um projeto ou somente dizer oi, preencha o formulário abaixo.
+        </p>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} name='EmailForm' ref={formRef}>
         <div ref={successMessageRef} className='form-success-box'>
           <span className='form-success-text'>Mensagem enviada com sucesso</span>

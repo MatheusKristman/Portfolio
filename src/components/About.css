@@ -65,9 +65,10 @@
 
 @media screen and (max-width: 1000px) {
   .about-wrapper {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding-right: 5%;
     background: linear-gradient(180deg, #251d3a 48.96%, rgba(37, 29, 58, 0) 100%);
+    padding-top: 100px;
   }
 
   .about-info {
@@ -85,6 +86,10 @@
     bottom: 0;
   }
 
+  .about-tag {
+    margin-bottom: 20px;
+  }
+
   .about-tag-span {
     font-size: 5rem;
   }
@@ -93,6 +98,10 @@
 @media screen and (max-width: 490px) {
   .about-info h2 {
     font-size: 1.5rem;
+  }
+
+  .about-info {
+    padding: 40px 50px;
   }
 }
 
