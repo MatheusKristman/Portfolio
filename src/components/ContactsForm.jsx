@@ -121,7 +121,7 @@ function ContactsForm() {
           <label htmlFor='email' className='email-label'>
             E-mail
           </label>
-          <input type='email' name='email' id='email' className={errors.email ? 'email-input input-error' : 'email-input'} {...register('email')} />
+          <input type='text' name='email' id='email' className={errors.email ? 'email-input input-error' : 'email-input'} {...register('email')} />
           {errors.email && <small className='input-error-message'>{errors.email.message}</small>}
         </div>
         <div className='subject-input-wrapper'>
