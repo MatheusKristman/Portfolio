@@ -221,8 +221,26 @@
 }
 
 @media screen and (max-width: 450px) {
+  .header-container {
+    height: 60px;
+  }
+
+  .header-image svg {
+    width: 60px;
+  }
+
   .header-menu-box {
     width: 80vw;
+  }
+
+  .open-menu-button {
+    right: 20px;
+  }
+
+  .open-menu-icon,
+  .open-menu-icon::before,
+  .open-menu-icon::after {
+    width: 35px;
   }
 }
 
