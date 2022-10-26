@@ -22,7 +22,7 @@ function CertificateItems() {
         </a>
         <div className='certificate-info'>
           <h3>Curso Web Moderno - Cod3r</h3>
-          <p>{'Aqui foi aonde consegui complementar grande parte do meu conhecimento com muitos exercicios. (sempre bom exercitar o cérebro)'}</p>
+          <p>{'["JavaScript Avançado", "Webpack", "HTTPS", "ReactJS", "NodeJS", "jQuery", "Bootstrap"];'}</p>
           <a
             href='https://www.udemy.com/certificate/UC-e7b8cbbf-3e46-4cbe-afd3-eb9ab860aaca/'
             target='_blank'
@@ -46,7 +46,7 @@ function CertificateItems() {
         </a>
         <div className='certificate-info'>
           <h3>{'NodeJS e MongoDB (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
-          <p>{'Esse foi o que me ajudou a entender melhor como funciona a parte Back-end e integração com o Front-end.'}</p>
+          <p>{'["NodeJS", "MongoDB"];'}</p>
           <a
             href='https://certificados.programadorbr.com/certificado/DVWBMK16NO29097'
             target='_blank'
@@ -70,7 +70,11 @@ function CertificateItems() {
         </a>
         <div className='certificate-info'>
           <h3>{'ReactJS (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
-          <p>{'Já esse foi o primeiro framework que aprendi na minha vida, sempre achei incrível como eles facilitam tanto a nossa vida.'}</p>
+          <p>
+            {
+              '["ReactJS", "useState", "useContext", "Componentes", "useEffect", "useLayoutEffect", "Reducers", "Redux", "react-hook-form", "react-router", "useCallback", "Create-react-app", "Vite", "refs", "Error Boundaries", "Portals"];'
+            }
+          </p>
           <a
             href="https://certificados.programadorbr.com/certificado/DVWBMK16NO29097'"
             target='_blank'
@@ -94,7 +98,7 @@ function CertificateItems() {
         </a>
         <div className='certificate-info'>
           <h3>{'Firebase, jQuery e Bootstrap (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
-          <p>{'Com esse consegui entender melhor como um banco de dados funciona, alem de alguns frameworks para agilizarem o processo.'}</p>
+          <p>{'["Firebase", "jQuery", "Bootstrap"];'}</p>
           <a
             href='https://certificados.programadorbr.com/certificado/DVWBMK16NO29097'
             target='_blank'
@@ -118,11 +122,7 @@ function CertificateItems() {
         </a>
         <div className='certificate-info'>
           <h3>{'HTML, CSS e JavaScript (Curso Desenvolvimento Web Full Stack) - ProgramadorBR'}</h3>
-          <p>
-            {
-              'Foi com esse que entrei no mundo da Programação, que criei meu primeiro site, que quebrei muito a cabeça para entender como a linguagem funciona e ele que me mostrou que posso fazer a diferença para as pessoas com o meu código.'
-            }
-          </p>
+          <p>{'["HTML", "CSS", "Javascript", "Sintaxe", "Manipulação DOM", "Fetch API", "ES6+", "Escopo", "Prototype", "Hoisting"];'}</p>
           <a
             href='https://certificados.programadorbr.com/certificado/DVWBMK16HT29097'
             target='_blank'
