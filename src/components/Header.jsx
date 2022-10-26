@@ -146,15 +146,11 @@ function Header() {
   }
 
   function disableScroll() {
-    const scrollTop = window.pageYOffset;
-
-    window.onscroll = function () {
-      window.scrollTo(0, scrollTop);
-    };
+    document.body.style.overflowY = 'hidden';
   }
 
   function enableScroll() {
-    window.onscroll = function () {};
+    document.body.style.overflowY = 'auto';
   }
 
   return (
