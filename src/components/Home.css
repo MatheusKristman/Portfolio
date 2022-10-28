@@ -46,6 +46,8 @@
   width: 90%;
   opacity: 0;
   animation: arrowEnable 1s 3.8s ease forwards;
+  border-top: 3px solid;
+  padding-top: 10px;
 }
 
 .home-image {

@@ -46,7 +46,7 @@ function Home() {
             <div className='home-title-wrapper'>
               <h1 ref={homeText} className='home-title' />
             </div>
-            <span className='home-desc'>Front-End | ReactJS</span>
+            <span className='home-desc'>Front-End</span>
           </div>
         </div>
         <img className='home-image' src={HomeImage} alt='home-image' />
