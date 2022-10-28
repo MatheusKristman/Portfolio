@@ -27,7 +27,6 @@ function App() {
     }
     window.addEventListener('scroll', updatePosition);
     updatePosition();
-    console.log(homeRef);
     return () => window.removeEventListener('scroll', updatePosition);
   }, []);
 
